@@ -1,0 +1,316 @@
+:root {
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-weight: 400;
+  letter-spacing: -.05rem;
+}
+
+
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+a:hover {
+  color: #535bf2;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-height: 100vh;
+}
+
+html, body {
+  background-color: #161616;
+  overscroll-behavior: none  ;
+}
+
+
+.website-content {
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  font-family: 'Inter', sans-serif;
+  color: #fff;
+  background-image: url("https://cdn.builder.io/api/v1/image/assets%2FYJIGb4i01jvw0SRdL5Bt%2F8997f779f33b430bb22ca667d1b73ade");
+  background-size: 30px;
+}
+
+
+
+main {
+  position: fixed;
+  top: 0; 
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+main .container {
+  position: absolute;
+  width: 150%;
+  height: 150%;
+  left: -25%;
+  top: -25%;
+  transform-origin: center;
+  padding: 5rem;
+  display: flex;
+  /* This tells the browser that we're going to be performing a transformation on this div,
+  so it's going to be animating with our mouse movements. So the browser will be able to 
+  optimize for the CSS transformation 
+  */
+  will-change: transform;
+}
+
+.container .column {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  /* border: 1px solid red; */
+  justify-content: space-around;
+  align-items: center;
+}
+
+.column:nth-child(2){
+  justify-content: space-between;
+}
+
+/* item div is created with javascript */
+.column .item {
+  position: relative;
+  width: 25vw;
+  /* When the item is clicked, the width will be multiplied by 4 to make it fill the entire viewport */
+  justify-content: center;
+  align-items: center;
+  /* overflow: hidden; */
+  cursor: pointer;
+  z-index: 3;
+}
+
+.item img {
+  position: absolute;
+  width: 100%;
+  /* height: 100%; */
+  height: 40vh;
+  object-fit: cover;
+  object-position: center ;
+}
+
+.website-content .content {
+  position: absolute;
+  width: 100%;
+  opacity: 0;
+  min-height: 100vh;
+  /* Makes sure that we cant click on any part of the content div when it is not visible on the screen */
+  /* pointer-events: none; */
+  transition: .5s;
+  /* background-color: #161616; */
+  z-index: 1;
+  border: 1px solid red;
+}
+
+/* Class will be added with javascript */
+.content.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.content__main__img {
+  width: 100%;
+  height: 80vh;
+  object-fit: cover;
+  object-position: center;
+  margin-bottom: 1rem;
+}
+
+.content__container {
+  position: relative;
+  width: 90%;
+  left: 50%;
+  transform: translateX(-50%);
+  /* border: 1px solid green; */
+}
+
+.content__text {
+  margin: 1rem 0;
+}
+
+.close:hover {
+  opacity: .5;
+  cursor: pointer;
+}
+
+.main__header {
+  position: fixed;
+  z-index: 3;
+  /* makes the color of the header adjust its color when it intersects with other elements */
+  mix-blend-mode: difference; 
+  left: 5vw;
+  top: 5vh;
+  opacity: 0;
+}
+
+.pre-loader{
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: #0a0a0a;
+  color: #e5e3dc;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+}
+
+.pre-loader-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.pre-loader-container .header {
+  position: relative;
+  width: max-content;
+  margin: 0 auto;
+}
+
+
+.header h1 {
+  position: relative;
+  top: 120px;
+  text-transform: uppercase;
+  text-align: center;
+  font-family: "Roslindale Display Condensed";
+  font-weight: 500;
+  font-size: 4.5vw;
+  line-height: 100%;
+  color: #0a0a0a;
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.6);
+  width: max-content;
+}
+
+.pre-loader-header .header:nth-child(n+2){
+  margin-top: 1.2rem;
+}
+
+.header h1 span {
+  margin-left: 1.38rem;
+}
+
+.header h1::before {
+  content: attr(data-text);
+  position: absolute;
+  color: #e5e3dc;
+  overflow: hidden;
+  width: 0%;
+  transition: 1s;
+  animation: fill 2s cubic-bezier(0.6, 0, 0.4, 1) forwards;
+  animation-delay: 1s;
+}
+
+@keyframes fill {
+  0%{
+    width: 0%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+.header-wrapper::after {
+  content: "";
+  position: absolute;
+  top: 120px;
+  left: -10%;
+  width: 122%;
+  height: 110%;
+  background: #0a0a0a;
+  margin: 0 auto;
+}
+
+.pre-loader-btn {
+  position: relative;
+  margin: 3rem 0 1rem 0;
+  font-family: "Neue Montreal";
+  font-size: 1.5rem;
+  cursor: pointer;
+  z-index: 2;
+  opacity: 0;
+  text-align: center;
+}
+
+.pre-loader-btn svg {
+  position: relative;
+  width: 80px;
+  top: 0;
+  padding: 0 0.4rem;
+}
+
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+button:hover {
+  border-color: #646cff;
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+}
+
+
