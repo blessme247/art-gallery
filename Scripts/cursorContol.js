@@ -1,6 +1,9 @@
 let innerCursor = document.querySelector(".inner-cursor")
 let outerCursor = document.querySelector(".outer-cursor")
 
+// export default innerCursor
+
+
 
 
 const moveCursor = (e)=>{
