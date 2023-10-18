@@ -303,7 +303,37 @@ body #cdawrap {
 	display: flex;
 	align-items: center;
 	gap: .5rem;
+	position: relative;
 }
+
+.portfolio_link:hover > span > span,
+.portfolio_link:focus > span > span {
+  transform: translateY(-200%);
+  text-transform: uppercase;
+  color: #fff;
+}
+
+.portfolio_link > span {
+	position: relative;
+	overflow: hidden;
+	display: block;
+	pointer-events: none;
+  }
+
+  .portfolio_link > span > span {
+	display: inline-block;
+	transition: 0.4s ease all;
+  }
+
+  .portfolio_link > span > span > span {
+	content: attr(data-text);
+	display: block;
+	position: absolute;
+	top: 0;
+	left: 0;
+	transform: translateY(200%);
+
+  }
 
 .sound__text {
 	cursor: pointer;
@@ -328,7 +358,10 @@ body #cdawrap {
 	grid-template-rows: auto;
 	align-self: start;
 	padding-bottom: 0;
-	display: none;
+}
+
+.pos-8 {
+	grid-area: 2 / 10;
 }
 
 .intro-grid--images {
@@ -364,9 +397,6 @@ body #cdawrap {
  
 }
 
-.intro-grid__img {
-  scale: 1.2;
-}
 
 .intro-grid--thumbs .intro-grid__img--current {
 	grid-area: 3 / 1 / 4 / -1;
@@ -377,6 +407,7 @@ body #cdawrap {
 .intro-grid--slider .intro-grid__label {
 	position: absolute;
 }
+
 
 .intro-grid__img {
 	background-size: cover;
@@ -514,7 +545,7 @@ body #cdawrap {
 	cursor: not-allowed;
 }
 
-@media screen and (min-width: 53em) {
+@media screen and (min-width: 53rem) {
 	.frame {
 		position: fixed;
 		height: 100vh;
@@ -548,7 +579,7 @@ body #cdawrap {
 	.pos-5 { grid-area: 1 / 6; }
 	.pos-6 { grid-area: 1 / 7; }
 	.pos-7 { grid-area: 1 / 9; }
-	.pos-8 { grid-area: 1 / 10; }
+	.pos-8 { grid-area: 1 / 11;}
 	.pos-9 { grid-area: 1 / 7; }
 	.pos-10 { grid-area: 4 / 9; }
 	.pos-11 { grid-area: 1 / 1; }

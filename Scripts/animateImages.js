@@ -40,7 +40,6 @@ let mode = 'grid';
 
 // Show the slider
 const showSlider = (image) => {
-    console.log("image clicked")
     if ( isAnimating || mode === 'slider' ) return;
     isAnimating = true;
     mode = 'slider';
