@@ -15,17 +15,75 @@
   </head>
   <body>
 
+    <audio
+    class="bg-music"
+    loop
+    autoplay
+    src="./Audio/alone.mp3"></audio>
+
+    <div class="inner-cursor"></div>
+    <div class="outer-cursor"></div>
+
     <div class="website-content">
       <div id="app">
-        <h1 class="main__header">Twitter Arts Exhibition</h1>
 
         <main>
-          <div class="container">
-            <div class="column">
-              <!-- <img src="./Images/galleryImg1.jpg" alt="content" class="content__main__img"> -->
+          <div class="mainOverlay"></div>
+          <div class="frame">
+            <div class="frame__title"> 
+              <h1 class="frame__title-main">Image Credits given to all artists</h1> 
             </div>
-            <div class="column"></div>
-            <div class="column"></div>
+            <nav class="frame__demos">
+              <span class="frame__demos-item">Art Direction and Development by</span>
+              <a class="frame__demos-item portfolio_link" target="_blank" href="https://blessme.netlify.app">Blessme 
+                <span> <svg width="16px" height="16px" viewBox="0 0 20 20" fill="#fff"><path vector-effect="non-scaling-stroke" d="M18.25 15.5a.75.75 0 00.75-.75v-9a.75.75 0 00-.75-.75h-9a.75.75 0 000 1.5h7.19L6.22 16.72a.75.75 0 101.06 1.06L17.5 7.56v7.19c0 .414.336.75.75.75z"></path>
+                </svg></span>
+              </a>
+            </nav>
+          </div>
+          <div class="intro-grid intro-grid--labels">
+            <!-- <span class="intro-grid__label pos-1 oh"><span class="oh__inner">I</span></span>
+            <span class="intro-grid__label pos-2 oh"><span class="oh__inner">II</span></span>
+            <span class="intro-grid__label pos-3 oh"><span class="oh__inner">III</span></span>
+            <span class="intro-grid__label pos-4 oh"><span class="oh__inner">IV</span></span>
+            <span class="intro-grid__label pos-5 oh"><span class="oh__inner">V</span></span>
+            <span class="intro-grid__label pos-6 oh"><span class="oh__inner">VI</span></span>
+            <span class="intro-grid__label pos-7 oh"><span class="oh__inner">VII</span></span> -->
+            <span class="intro-grid__label pos-8 oh"><span class="oh__inner sound__text">SOUND OFF</span></span>
+          </div>
+          <div class="intro-grid intro-grid--images">
+            <div class="intro-grid__img pos-11" style="background-image:url(/Images/galleryImg1.jpg)"></div>
+            <div class="intro-grid__img pos-16" style="background-image:url(/Images/galleryImg2.jpg)"></div>
+            <div class="intro-grid__img pos-9" style="background-image:url(/Images/galleryImg3.jpg)"></div>
+            <div class="intro-grid__img pos-17" style="background-image:url(/Images/galleryImg5.jpg)"></div>
+            <div class="intro-grid__img pos-12" style="background-image:url(/Images/galleryImg4.jpg)"></div>
+            <div class="intro-grid__img pos-13" style="background-image:url(/Images/galleryImg8.jpg)"></div>
+            <div class="intro-grid__img pos-21" style="background-image:url(/Images/galleryImg7.jpg)"></div>
+            <div class="intro-grid__img pos-14" style="background-image:url(/Images/galleryImg9.jpg)"></div>
+            <div class="intro-grid__img pos-10" style="background-image:url(/Images/galleryImg14.jpg)"></div>
+            <div class="intro-grid__img pos-20" style="background-image:url(/Images/galleryImg6.jpg)"></div>
+            <div class="intro-grid__img pos-15" style="background-image:url(/Images/galleryImg11.jpg)"></div>
+            <div class="intro-grid__img pos-19" style="background-image:url(/Images/galleryImg10.jpg)"></div>
+            <div class="intro-grid__img pos-22" style="background-image:url(/Images/galleryImg13.jpg)"></div>
+            <div class="intro-grid__img pos-18" style="background-image:url(/Images/galleryImg12.jpg)"></div>   
+          </div>
+          <div class="intro-title">
+            <h2 class="intro-title__main oh"><span class="oh__inner">Twitter Arts</span></h2>
+            <span class="intro-title__sub oh"><span class="oh__inner">Exhibition</span></span>
+          </div>
+          <div class="slider-title">
+            <h3 class="slider-title__main oh"><span class="oh__inner">Collection</span></h3>
+            <p class="slider-title__desc">The collection is a celebration of beauty and creativity made by. <span><a href="https://twitter.com/_veuillez" target="_blank">The Artist</a></span></p>
+          </div>
+          <div class="controls">
+            <button class="unbutton close">X</button>
+            <nav class="nav">
+              <button class="unbutton nav__item">prev</button>
+              <span class="nav__index">
+                <span>1</span>/<span>15</span>
+              </span>
+              <button class="unbutton nav__item">next</button>
+            </nav>
           </div>
         </main>
         
@@ -105,5 +163,8 @@
     </div>
   </div>
     <script type="module" src="/main.js"></script>
+    <script src="./Scripts/animateImages.js"></script>
+    <script src="./Scripts/cursorContol.js"></script>
+    <script src="./Scripts/Flip.min.js"></script>
   </body>
 </html>

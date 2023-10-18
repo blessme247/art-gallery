@@ -1,57 +1,24 @@
-import { projects } from "./Scripts/projects"
-import { lerp } from "./Scripts/utils"
+let audio = document.querySelector('.bg-music')
+let soundText = document.querySelector('.sound__text')
+// soundText.innerHTML = audio.paused ? 'SOUND ON' : 'SOUND OFF';
+audio.volume = 0.2
+audio.pause()
 
-const content = document.querySelector(".content")
-const contentImage = document.querySelector(".content__main__img")
-const contentHeader = document.querySelector(".content__header")
-const contentText = document.querySelector(".content__text")
-const contentCloseBtn = document.querySelector(".close")
-const container = document.querySelector(".container")
-const columns = [...document.querySelectorAll(".column")]
+// soundText.addEventListener('click', () => {
+//   soundText.innerHTML = soundText.innerHTML === 'SOUND OFF' ? 'SOUND ON' : 'SOUND OFF';
+  
+// });
 
-
-let projectsArray = []
-let animating = true
-
-class Project{
-  constructor(image,idx,title,content){
-    this.image = image
-    this.idx = idx
-    this.title = title
-    this.content = content
-    this.active = false;
-    // Initiate a method
-    this.createItem()
+soundText.addEventListener('click', () => {
+  if (audio.paused) {
+    soundText.innerHTML = 'SOUND OFF';
+    audio.play(); // Start playing the audio
+  } else {
+    soundText.innerHTML = 'SOUND ON';
+    audio.pause(); // Pause the audio
   }
+});
 
-  // Create the method initiated above
-  createItem(){
-    this.gridItem = document.createElement('div')
-    this.gridItem.classList.add('item')
-    this.img = document.createElement('img')
-    this.img.src = this.image
-    this.gridItem.appendChild(this.img)
-    let i = this.idx % columns.length
-    columns[i].appendChild(this.gridItem)
-
-    // console.log(this.gridItem, "Grid Item"); // Add this line
-    // Create another method and bind the instance of the createItem method to it
-    this.gridItem.addEventListener('click', this.activate.bind(this))
-  }
-
-  activate(){
-    console.log("activate method called");
-    console.log(this, "activate this")
-    document.body.scrollTop = document.documentElement.scrollTop = 0;
-  }
-
-}
-
-projects.forEach((project,idx)=>{ 
-  // For each project, create an instance of the project class above
-  let newProject = new Project(project.image, idx, project.title, project.content)
-  projectsArray.push(newProject)    
-})
 
 
 const animatePreloader = ()=>{
@@ -71,18 +38,47 @@ const animatePreloader = ()=>{
   .to(".pre-loader",1,{
     opacity: 0
   },+4.5)
-  .from(".main__header",{
-    y: 0 
+  .set(".pre-loader", { display: 'none' })
+  
+  .to(".mainOverlay", {
+    width: "0%",
+    ease: "power2.inOut",
+    duration: 1.2
   })
-  .to(".main__header", {
-    y: 5,
+  .fromTo(".intro-grid__img", {
+    scale: 1.2
+  },
+  {
+    scale: 1
+  }, "-=0.5"
+  )
+  .fromTo(".sound__text", {
+    y: -5,
+    opacity: 0
+  },
+  {
+    y: 0,
     opacity: 1
-  })
-
+  }
+  )
+  .fromTo([".frame__title-main", ".frame__demos"],{
+    y: 5,
+    opacity: 0
+  },
+  {
+    y: 0,
+    opacity: 1
+  }
+  )
 
 }
 
 animatePreloader()
-// svgBtn.addEventListener('click', ()=> animatePreloader())
+
+
+
+
+
+
 
 
