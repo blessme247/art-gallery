@@ -2,7 +2,7 @@ let audio = document.querySelector('.bg-music')
 let soundText = document.querySelector('.sound__text')
 // soundText.innerHTML = audio.paused ? 'SOUND ON' : 'SOUND OFF';
 audio.volume = 0.2
-audio.pause()
+// audio.pause()
 
 // soundText.addEventListener('click', () => {
 //   soundText.innerHTML = soundText.innerHTML === 'SOUND OFF' ? 'SOUND ON' : 'SOUND OFF';
